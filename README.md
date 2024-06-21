@@ -1,2 +1,2 @@
 # colegio_gates
-Repositorio en el cual, se anexa scripts requeridos para la entrega del modelo de bases de datos para el ejercicio de colegio gates.
+Este proyecto implementa una base de datos completa para una institución educativa, con el propósito de administrar de manera eficaz la información vinculada a los estudiantes, profesores, asignaturas y programas académicos.
