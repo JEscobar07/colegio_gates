@@ -1,0 +1,7 @@
+db.createCollection("sedes")
+db.createCollection("tipos_de_documentos")
+db.createCollection("cursos")
+db.createCollection("roles")
+db.createCollection("estudiantes")
+db.createCollection("empleados");
+db.createCollection("materias");
