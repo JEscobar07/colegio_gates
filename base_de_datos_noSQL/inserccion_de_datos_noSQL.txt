@@ -1,0 +1,106 @@
+-- Se insertan diferentes roles en tabla de roles con su descripción
+
+db.roles.insertMany([{'nombre':'estudiante','descripcion':'rol para los estudiantes'},
+{'nombre':'docente','descripcion':'rol para los docentes'},
+{'nombre':'administrativo','descripcion':'Rol para el personal administrativo'},
+{'nombre':'director','descripcion':'rol para los directores'}]);
+
+-- Se llena la tabla tipo_de_documentos
+
+db.tipos_de_documentos.insertMany([{ abreviacion: 'cc', nombre_documento:'cédula de ciudadanía'},
+                                   {abreviacion:'ti', nombre_documento:'tarjeta de identidad'}])
+
+-- Se llena la tabla empleados con 4 empleados siendo 3 profesores y 1 rector
+
+db.empleados.insertOne({"nombre":"jonathan","apellido":"escobar","tipo_documento":"cc","num_documento":"1123646","fecha_nacimiento":"2001-01-01T18:00:00Z","rol":"profesor","salario":"3000000"});
+
+db.empleados.insertOne({"nombre":"alejandro","apellido":"escobar","tipo_documento":"cc","num_documento":"1453646","fecha_nacimiento":"1990-01-01T18:00:00Z","rol":"rector","salario":"3000000"});
+
+db.empleados.insertOne({"nombre":"mauricio","apellido":"señoron","tipo_documento":"cc","num_documento":"2123646","fecha_nacimiento":"1995-01-01T18:00:00Z","rol":"profesor","salario":"3000000"});
+
+db.empleados.insertOne({"nombre":"santiago","apellido":"cardona","tipo_documento":"cc","num_documento":"3123646","fecha_nacimiento":"2000-01-01T18:00:00Z","rol":"profesor","salario":"3000000"});
+
+-- Se llena la tabla estudiantes con 2 estudiantes de manera individual.
+
+db.estudiantes.insertOne({"nombre":"arlex","apellido":"zapata","tipo_documento":"cc","num_documento":"1037646","fecha_nacimiento":"1996-01-01T18:00:00Z","rol":"estudiante"});
+
+db.estudiantes.insertOne({"nombre":"jonathan","apellido":"escobar","tipo_documento":"cc","num_documento":"10001469","fecha_nacimiento":"2001-06-11T18:00:00Z","rol":"estudiante"});
+
+-- Se llena la tabla materias con 2 materias matemáticas y física con sus respectivos atributos
+
+db.materias.insertMany([
+   {
+  	"nombre":"matematicas",
+   	"profesores":[ 
+   			{"ObjectId":"667b435c883debb244f9b38e","nombre":"jonathan","numero_de_documento":"1123646"},
+   		  	{"ObjectId":"667b4388883debb244f9b390","nombre":"mauricio","numero_de_documento":"2123646"}
+   		      ]
+   },
+  {
+  	"nombre":"fisica",
+   	"profesores":[
+   			{"ObjectId":"667b4397883debb244f9b391","nombre":"santiago","numero_de_documento":"3123646"}
+   		     ]
+   }
+   ])
+
+
+-- Se llena la tabla cursos con sus respectivos datos, en total fueron 2 cursos que se agregaron
+-- hay una materia que tiene 2 estudiantes.
+
+db.cursos.insertMany([
+	{
+		nombre:"10A", descripcion:"decimo A", horario:"diurno",
+ 		materias:[
+ 		{
+ 			ObjectId:"667c966fe47d3f037962cc86",nombre:"matematicas",
+           		estudiantes:[
+           		{
+           			ObjectId:"667c9651e47d3f037962cc84",nombre:"arlex",numero_documento:"1037646"
+           		}
+           		]
+           	}]
+         },
+         {
+         	nombre:"9", descripcion:"noveno",horario:"nocturno",
+		materias:[
+		{
+			ObjectId:"667c966fe47d3f037962cc87",nombre:"fisica",
+          		estudiantes:[
+          		{
+          			ObjectId:"667c9659e47d3f037962cc85",nombre:"jonathan",numero_documento:"10001469"
+          		},
+			{
+           			ObjectId:"667c9651e47d3f037962cc84",nombre:"arlex",numero_documento:"1037646"
+           		}
+          		]
+          	}]
+          }
+          ])
+
+-- Se llena la tabla sedes con sus respectivos atributos.
+
+db.sedes.insertMany([
+	{
+		nombre:"colegio gates envigado",municipio:"envigado",direccion:"calle 78 #56-78",cantidad_salones:6,
+		empleados:[
+			{ObjectId:"667c9597e47d3f037962cc80",nombre:"jonathan",rol_nombre:"profesor"},
+           		{ObjectId:"667c95c1e47d3f037962cc81",nombre:"alejandro",rol_nombre:"rector"}
+		],
+		cursos:[
+			{ObjectId:"667c96bfe47d3f037962cc88",nombre:"10A",horario:"diurno"}
+		]
+	},
+        {
+		nombre:"colegio gates medellin",municipio:"medellin",direccion:"carrera 45 #12-34",cantidad_salones:5,
+		empleados:[
+			{ObjectId:"667c9615e47d3f037962cc82",nombre:"mauricio",rol_nombre:"profesor"},
+			{ObjectId:"667c961ee47d3f037962cc83",nombre:"santiago",rol_nombre:"profesor"}
+		],
+		cursos:[
+			{ObjectId:"667c96bfe47d3f037962cc89",nombre:"9",horario:"nocturno"}
+		]
+	}
+]);
+
+
