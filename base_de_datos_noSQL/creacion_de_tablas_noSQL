@@ -1,3 +1,5 @@
+--Creacion de las tablas de acuerdo al nuevo diagrama para una base de datos noSQL
+
 db.createCollection("sedes")
 db.createCollection("tipos_de_documentos")
 db.createCollection("cursos")
