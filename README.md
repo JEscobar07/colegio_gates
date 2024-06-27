@@ -15,6 +15,7 @@ Diagrama relacional en Lucid chart
 
 https://lucid.app/lucidchart/e58cb58d-684c-44f5-937a-1097a7b8603e/edit?viewport_loc=14%2C2325%2C2260%2C1150%2C0_0&invitationId=inv_66ff4fc9-6512-4af4-a26c-864c6c4534bc 
 
+Conexxion a la base de datos de MySQL
  Plataforma utilizada, clever cloud:
   MYSQL_ADDON_HOST=bavrjizrr7xzaqmwlc0h-mysql.services.clever-cloud.com
   MYSQL_ADDON_DB=bavrjizrr7xzaqmwlc0h
